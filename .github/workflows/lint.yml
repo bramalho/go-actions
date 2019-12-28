@@ -12,5 +12,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v1
     
-    - name: Test
-      run: golint *.go
+    - name: Install golint
+      run: |
+        go get -u golang.org/x/lint/golint
+        ls $GOBIN | grep golint
+
+    - name: Lint
+      run: golint ./...
