@@ -1,4 +1,4 @@
-# Go Test Actions
+# Go Actions
 
 ## Test
 

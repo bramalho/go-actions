@@ -1,4 +1,4 @@
-module go-test-actions
+module go-actions
 
 go 1.13
 
