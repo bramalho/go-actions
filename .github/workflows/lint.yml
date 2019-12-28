@@ -8,11 +8,6 @@ jobs:
       - name: Install Go
         uses: actions/setup-go@v1
         with:
-          go-version: 1.12
-
-      - name: Install Go
-        uses: actions/setup-go@v1
-        with:
           go-version: 1.x
       
       - name: Setup env

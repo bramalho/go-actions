@@ -29,3 +29,7 @@ export GOBIN=$HOME/go/bin
 go get -u golang.org/x/lint/golint
 ls $GOBIN | grep golint
 ```
+
+```bash
+golint main.go
+```
