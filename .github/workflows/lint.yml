@@ -2,20 +2,21 @@ on: [push]
 name: Lint
 jobs:
   lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
-    - name: Install Go
-      uses: actions/setup-go@v1
-      with:
-        go-version: 1.13.x
-    
-    - name: Checkout code
-      uses: actions/checkout@v1
-    
-    - name: Install golint
-      run: |
-        go get -u golang.org/x/lint/golint
-        ls $GOBIN | grep golint
+      - name: Install Go
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.13.x
 
-    - name: Lint
-      run: golint ./...
+      - name: Check out code
+        uses: actions/checkout@v1
+
+      - name: Install golint
+        run: |
+          export PATH=$PATH:$(go env GOPATH)/bin
+          go get -u golang.org/x/lint/golint 
+      
+      - name: Lint
+        run: golint ./...
