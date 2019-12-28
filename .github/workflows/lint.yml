@@ -31,4 +31,4 @@ jobs:
         run: go get -u golang.org/x/lint/golint
       
       - name: Lint
-        run: golint main.go
+        run: golint -set_exit_status
