@@ -10,13 +10,19 @@ jobs:
         with:
           go-version: 1.12
 
-      - name: Check out code
-        uses: actions/checkout@v1
+      - name: Setup env
+        run: |
+          echo "::set-env name=GOPATH::$(go env GOPATH)"
+          echo "::add-path::$(go env GOPATH)/bin"
+        shell: bash
 
       - name: Install golint
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
           go get -u golang.org/x/lint/golint 
+
+      - name: Check out code
+        uses: actions/checkout@v1
       
       - name: Lint
         run: golint main.go
